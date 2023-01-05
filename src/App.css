@@ -1,0 +1,218 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-image: url(https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700410991.jpg);
+  background-color: black;
+  background-size: cover;
+}
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+  padding: 0;
+}
+
+.App {
+  /* background-color: #252525; */
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  width: 100%;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 5px 30px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  box-shadow: 0px 0px 20px black;
+}
+
+.hero-container{
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 600px; 
+  margin-top: 70px;
+  overflow: hidden;
+}
+
+.hero-container img {
+  max-width: 100%;
+  /* max-height: 500px; */
+  box-shadow: 0px 0px 500px black;
+  background-position: center;
+  background-size: cover;
+}
+
+/* @media (max-width: 970px) {
+  .hero-container{
+    margin-top: -150px;
+     
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-container{
+    margin-top: -190px;
+     
+  }
+}
+
+@media (max-width: 660px) {
+  .hero-container{
+    margin-top: -270px;
+     
+  }
+} */
+
+
+.hero-paragraph {
+  font-size: 25px;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.142);
+  border-radius: 5px;
+  width: 80%;
+  backdrop-filter: blur(5px);
+  color: rgba(255, 255, 255, 0.616);
+  margin: 0;
+  position: relative;
+  bottom: 30px;
+}
+/* 
+@media (min-width: 971px) {
+  .hero-container{
+    margin-top: 70px;
+    max-height: 700px;
+  }
+
+  .hero-paragraph {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 550px) {
+  .hero-container{
+    margin-top: -390px;
+     
+  }
+  .hero-paragraph {
+    font-size: 14px;
+  }
+} */
+
+.select-container {
+  padding: 2rem  2rem 0  2rem;
+  /* background-color: antiquewhite; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-container select {
+  background-color: black;
+  padding: 10px 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 100;
+  color: white;
+  border: none;
+  letter-spacing: 1px;
+  /* max-width: 700px;
+  min-width: 50%; */
+  width: 80%;
+  max-width: 700px;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+
+.select-container form  {
+  background-color: white;
+  padding: 10px 0px;
+  /* max-width: 700px;
+  min-width: 50%; */
+  width: 80%;
+  max-width: 700px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select-container form input {
+  border: none ;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  border: none;
+  letter-spacing: 1px;
+  appearance: none;
+  outline: none;
+  padding-left: 10px;
+  width: 89%;
+}
+
+.select-container form i {
+  padding-right: 7px;
+} 
+
+ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  /* background: plum; */
+  padding: 0;
+  width: 80%;
+  margin-top: 2px;
+}
+
+ li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.142);
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  max-width: 700px;
+}
+
+
+
+li div {
+  /* background-color: aqua; */
+  width: 80%;
+  max-width: 700px;
+}
+
+li div * {
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+li div h4 {
+  font-weight: 400;
+  letter-spacing: 1px;
+  /* color: #444; */
+}
+li div p {
+  font-weight: 300;
+}
+
+
+
