@@ -55,7 +55,7 @@ nav {
 }
 
 .hero-paragraph {
-  font-size: 25px;
+  font-size: 20px;
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.142);
   border-radius: 5px;
@@ -299,15 +299,22 @@ li div:hover {
   width: 100%;
 }
 
-.popUp-form input {
+.popUp-form div {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 70%;
+}
+
+.popUp-form div input {
   appearance: none;
   outline: none;
-  width: 70%;
+  width: 100%;
   padding: 7px;
   font-size: 15px;
   border: none;
   border-radius: 5px;
   background: rgba(122, 122, 122, 0.521);
+  background-color: transparent;
   color: white;
 }
 

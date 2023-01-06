@@ -39,13 +39,6 @@ function App() {
     String(item[selectValue]).toLowerCase().startsWith(inputValue.toLowerCase())
   );
 
-  const handleRS = (rs) => {
-    let array = rs.trim().split(" ");
-    array.pop();
-    let companyName = array.join(" ");
-    return companyName;
-  };
-
   const handleItem = (company) => {
     api
       .get(`/Companies/${company.id}/.json`)
@@ -58,8 +51,10 @@ function App() {
         setCodigo(res.data.codigo);
         setId(company.id);
       })
-      .catch(() => console.log("no funciona"));
+      .catch((error) => console.log(error));
   };
+
+  
 
   const body = {
     codigo,
@@ -85,6 +80,7 @@ function App() {
       });
     });
     setPopUp(false);
+    setLogo("")
   };
 
   return (
@@ -190,39 +186,62 @@ function App() {
         style={{ visibility: popUp ? "visible" : "hidden" }}
       >
         <div>
-          <i onClick={() => setPopUp(false)} className="fa-solid fa-x"></i>
+          <i onClick={() => {
+            setPopUp(false)
+            setLogo("")}} className="fa-solid fa-x"></i>
           <img src={logo} width="180px" />
           <form className="popUp-form" onSubmit={submit}>
+           
+            <div>
+            <i className="fa-regular fa-building"></i>
             <input
               type="text"
               placeholder="Razón Social"
               value={razonSocial}
               onChange={(e) => setRazonSocial(e.target.value)}
             />
+            </div>
+            <div>
+            <i className="fa-regular fa-user"></i>
             <input
               type="text"
               placeholder="Nombre"
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
             />
+            </div>
+            <div>
+            <i className="fa-solid">NIT</i>
             <input
               type="text"
               placeholder="NIT"
               value={nit}
               onChange={(e) => setNit(e.target.value)}
             />
+            </div>
+            <div>
+            <i className="fa-solid fa-phone"></i>
             <input
               type="text"
               placeholder="Teléfono"
               value={telefono}
               onChange={(e) => setTelefono(e.target.value)}
             />
+            </div>
+            <div>
+            <i className="fa-solid fa-qrcode"></i>
             <input
               type="text"
               placeholder="Código"
               value={codigo}
               onChange={(e) => setCodigo(e.target.value)}
             />
+            </div>
+           
+           
+          
+            
+          
             <button type="submit">ACTUALIZAR</button>
           </form>
         </div>
