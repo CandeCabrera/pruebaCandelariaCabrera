@@ -5,9 +5,8 @@ import hero from "./assets/hero2.png";
 import api from "./api";
 
 function App() {
-  //const types = ["Nombre", "Razón Social", "NIT", "Teléfono", "Código"];
-
   const [companies, setCompanies] = useState([]);
+  const [seeMore, setSeeMore] = useState(false);
   const [selectValue, setSelectValue] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [popUp, setPopUp] = useState(false);
@@ -17,23 +16,24 @@ function App() {
   const [telefono, setTelefono] = useState(null);
   const [codigo, setCodigo] = useState(null);
   const [logo, setLogo] = useState("");
-  const [id, setId] = useState("")
-  
+  const [id, setId] = useState("");
+
   useEffect(() => {
-    api
-      .get("/Companies.json")
-      .then(({ data }) => {
-        const empresas = [];
-        for (const id of Object.keys(data)) {
-          empresas.push({
-            id,
-            ...data[id],
-          });
-        }
+    api.get("/Companies.json").then(({ data }) => {
+      const empresas = [];
+      for (const id of Object.keys(data)) {
+        empresas.push({
+          id,
+          ...data[id],
+        });
+      }
+      if (seeMore) {
         setCompanies(empresas);
-      })
-      .then(() => console.log(companies));
-  }, []);
+      } else {
+        setCompanies(empresas.splice(0, 20));
+      }
+    });
+  }, [seeMore]);
 
   const filterSearch = Object.values(companies).filter((item) =>
     String(item[selectValue]).toLowerCase().startsWith(inputValue.toLowerCase())
@@ -56,7 +56,7 @@ function App() {
         setRazonSocial(res.data.razonSocial);
         setTelefono(res.data.telefono);
         setCodigo(res.data.codigo);
-        setId(company.id)
+        setId(company.id);
       })
       .catch(() => console.log("no funciona"));
   };
@@ -67,45 +67,38 @@ function App() {
     nombre,
     telefono,
     nit,
-    logo
-  }
+    logo,
+  };
 
-  console.log("body", body);
-
-  const submit = (e)=>{
-    e.preventDefault()
-    api.put(`/Companies/${id}/.json`, body)
-    .then(()=> {
-      api
-    .get("/Companies.json")
-    .then(({ data }) => {
-      const empresas = [];
-      for (const id of Object.keys(data)) {
-        empresas.push({
-          id,
-          ...data[id],
-        });
-      }
-      setCompanies(empresas);
-    })
-    })
-    
-    .then(() => console.log(companies));
-    setPopUp(false)
-  }
-  
+  const submit = (e) => {
+    e.preventDefault();
+    api.put(`/Companies/${id}/.json`, body).then(() => {
+      api.get("/Companies.json").then(({ data }) => {
+        const empresas = [];
+        for (const id of Object.keys(data)) {
+          empresas.push({
+            id,
+            ...data[id],
+          });
+        }
+        setCompanies(empresas);
+      });
+    });
+    setPopUp(false);
+  };
 
   return (
     <div className="App">
       <nav>
         <img src={companyLogo} width="60px" />
       </nav>
-      <div className="hero-container">
+      <section className="hero-container">
         <img src={hero} />
-      </div>
+      </section>
       <p className="hero-paragraph">
-        Encuentra aquí toda la información necesaria de las empresas con las que
-        trabajamos.
+        Aquí puedes encontrar toda la información necesaria de las empresas con
+        las que trabajamos. La razón social, el nombre del representante legal,
+        el NIT, el teléfono y nuestro código interno de la compañía.
       </p>
       <div className="sel select-container">
         <select onChange={(e) => setSelectValue(e.target.value)}>
@@ -140,13 +133,20 @@ function App() {
                 setPopUp(true);
               }}
             >
-              <img src={company.logo} width="80px" />
+              <img src={company.logo} width="100px" />
               <div>
                 <h4>{handleRS(company.razonSocial)}</h4>
-                <p>
-                  <b>{`${selectValue.toUpperCase()}: `}</b>{" "}
-                  {company[selectValue]}
-                </p>
+
+                <div className="grid-list">
+                  <i className="fa-regular fa-user"></i>
+                  <i className="fa-solid">NIT</i>
+                  <i className="fa-solid fa-phone"></i>
+                  <i className="fa-solid fa-qrcode"></i>
+                  <p>{company.nombre}</p>
+                  <p>{company.nit}</p>
+                  <p>{company.telefono}</p>
+                  <p>{company.codigo}</p>
+                </div>
               </div>
             </li>
           ))}{" "}
@@ -161,27 +161,27 @@ function App() {
                 setPopUp(true);
               }}
             >
-              <img src={company?.logo} width="80px" />
+              <img src={company?.logo} width="100px" />
               <div>
                 <h4>{handleRS(company.razonSocial)}</h4>
-                <p>
-                  {selectValue ? (
-                    <p>
-                      <b>{`${selectValue.toUpperCase()}: `}</b>{" "}
-                      {company[selectValue]}
-                    </p>
-                  ) : (
-                    <p>
-                      <b>NIT: </b> {company.nit}
-                    </p>
-                  )}
-                </p>
+                <div className="grid-list">
+                  <i className="fa-regular fa-user"></i>
+                  <i className="fa-solid">NIT</i>
+                  <i className="fa-solid fa-phone"></i>
+                  <i className="fa-solid fa-qrcode"></i>
+                  <p>{company.nombre}</p>
+                  <p>{company.nit}</p>
+                  <p>{company.telefono}</p>
+                  <p>{company.codigo}</p>
+                </div>
               </div>
             </li>
           ))}
         </ul>
       )}
-
+      <button className="see-more" onMouseOver={() => setSeeMore(true)}>
+        VER MAS
+      </button>
       <div
         className="popUp"
         style={{ visibility: popUp ? "visible" : "hidden" }}
