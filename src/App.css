@@ -36,11 +36,11 @@ nav {
   box-shadow: 0px 0px 20px black;
 }
 
-.hero-container{
+.hero-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: 600px; 
+  max-height: 600px;
   margin-top: 70px;
   overflow: hidden;
 }
@@ -53,28 +53,6 @@ nav {
   position: relative;
   z-index: -2;
 }
-
-/* @media (max-width: 970px) {
-  .hero-container{
-    margin-top: -150px;
-     
-  }
-}
-
-@media (max-width: 760px) {
-  .hero-container{
-    margin-top: -190px;
-     
-  }
-}
-
-@media (max-width: 660px) {
-  .hero-container{
-    margin-top: -270px;
-     
-  }
-} */
-
 
 .hero-paragraph {
   font-size: 25px;
@@ -89,32 +67,11 @@ nav {
   bottom: 30px;
   z-index: -1;
 }
-/* 
-@media (min-width: 971px) {
-  .hero-container{
-    margin-top: 70px;
-    max-height: 700px;
-  }
-
-  .hero-paragraph {
-    font-size: 35px;
-  }
-}
-
-@media (max-width: 550px) {
-  .hero-container{
-    margin-top: -390px;
-     
-  }
-  .hero-paragraph {
-    font-size: 14px;
-  }
-} */
 
 /* ! SELECT AND FILTER */
 
 .select-container {
-  padding: 2rem  2rem 0  2rem;
+  padding: 2rem 2rem 0 2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -140,11 +97,9 @@ nav {
   cursor: pointer;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-
 }
 
-
-.select-container form  {
+.select-container form {
   background-color: white;
   padding: 9px 0px;
   width: 80%;
@@ -158,7 +113,7 @@ nav {
 }
 
 .select-container form input {
-  border: none ;
+  border: none;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 300;
@@ -173,11 +128,11 @@ nav {
 
 .select-container form i {
   padding-right: 7px;
-} 
+}
 
 /* ! COMPANIES LIST */
 
-ul{
+ul {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -188,10 +143,10 @@ ul{
   width: 80%;
   max-width: 470px;
   margin-top: 5px;
- padding-bottom: 10rem;
+  padding-bottom: 10rem;
 }
 
- li {
+li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -201,10 +156,7 @@ ul{
   backdrop-filter: blur(5px);
   overflow: hidden;
   max-width: 700px;
-  
- 
 }
-
 
 li div {
   width: 80%;
@@ -238,14 +190,13 @@ li img {
   border-right: 2px solid #222;
 }
 
-.grid-list{
+.grid-list {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   align-content: center;
   gap: 10px;
-  
 }
 
 .grid-list i {
@@ -255,40 +206,37 @@ li img {
 .grid-list p {
   font-size: 13px;
   text-shadow: 0 0 10px black;
-
 }
 
 li div:hover {
   z-index: -8;
 }
 
-.edit-hover{
+.edit-hover {
   width: 100%;
   height: 100px;
-  /* background: #222; */
   color: transparent;
   position: absolute;
   z-index: -4;
 }
 
-.edit-hover:hover{
+.edit-hover:hover {
   color: white;
   font-weight: 300;
   font-size: 25px;
   cursor: pointer;
-  background: rgba(34, 34, 34, 0.807); 
+  background: rgba(34, 34, 34, 0.807);
   backdrop-filter: blur(5px);
   z-index: 7;
   padding-top: 70px;
   text-shadow: 0 0 20px black;
 }
 
-.see-more{
+.see-more {
   width: 1700px;
   height: 80px;
   appearance: none;
   outline: none;
-  /* background: red; */
   border: none;
   color: transparent;
   position: relative;
@@ -296,9 +244,6 @@ li div:hover {
   display: flex;
   justify-content: space-between;
 }
-
-
-
 
 /* ! POPUP */
 
@@ -326,7 +271,6 @@ li div:hover {
   justify-content: space-evenly;
   position: relative;
   border-radius: 5px;
-  
 }
 
 .popUp div img {
@@ -380,11 +324,8 @@ li div:hover {
   color: #efefef;
 }
 
-.popUp-form button:hover{
+.popUp-form button:hover {
   cursor: pointer;
   background-color: #efefef;
   color: black;
 }
-
-
-

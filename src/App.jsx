@@ -148,9 +148,7 @@ function App() {
                   <p>{company.codigo}</p>
                 </div>
               </div>
-              <div className="edit-hover">
-                EDITAR
-              </div>
+              <div className="edit-hover">EDITAR</div>
             </li>
           ))}{" "}
         </ul>
@@ -177,20 +175,16 @@ function App() {
                   <p>{company.telefono}</p>
                   <p>{company.codigo}</p>
                 </div>
-                
               </div>
-              <div className="edit-hover">
-                EDITAR
-              </div>
-              
+              <div className="edit-hover">EDITAR</div>
             </li>
           ))}
           <div className="see-more" onMouseOver={() => setSeeMore(true)}>
-        VER MAS
-      </div>
+            VER MAS
+          </div>
         </ul>
       )}
-      
+
       <div
         className="popUp"
         style={{ visibility: popUp ? "visible" : "hidden" }}
