@@ -12,9 +12,9 @@ function App() {
   const [popUp, setPopUp] = useState(false);
   const [razonSocial, setRazonSocial] = useState("");
   const [nombre, setNombre] = useState("");
-  const [nit, setNit] = useState(null);
-  const [telefono, setTelefono] = useState(null);
-  const [codigo, setCodigo] = useState(null);
+  const [nit, setNit] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [codigo, setCodigo] = useState("");
   const [logo, setLogo] = useState("");
   const [id, setId] = useState("");
 
@@ -135,7 +135,7 @@ function App() {
             >
               <img src={company.logo} width="100px" />
               <div>
-                <h4>{handleRS(company.razonSocial)}</h4>
+                <h4>{company.razonSocial}</h4>
 
                 <div className="grid-list">
                   <i className="fa-regular fa-user"></i>
@@ -147,6 +147,9 @@ function App() {
                   <p>{company.telefono}</p>
                   <p>{company.codigo}</p>
                 </div>
+              </div>
+              <div className="edit-hover">
+                EDITAR
               </div>
             </li>
           ))}{" "}
@@ -163,7 +166,7 @@ function App() {
             >
               <img src={company?.logo} width="100px" />
               <div>
-                <h4>{handleRS(company.razonSocial)}</h4>
+                <h4>{company.razonSocial}</h4>
                 <div className="grid-list">
                   <i className="fa-regular fa-user"></i>
                   <i className="fa-solid">NIT</i>
@@ -174,14 +177,20 @@ function App() {
                   <p>{company.telefono}</p>
                   <p>{company.codigo}</p>
                 </div>
+                
               </div>
+              <div className="edit-hover">
+                EDITAR
+              </div>
+              
             </li>
           ))}
+          <div className="see-more" onMouseOver={() => setSeeMore(true)}>
+        VER MAS
+      </div>
         </ul>
       )}
-      <button className="see-more" onMouseOver={() => setSeeMore(true)}>
-        VER MAS
-      </button>
+      
       <div
         className="popUp"
         style={{ visibility: popUp ? "visible" : "hidden" }}

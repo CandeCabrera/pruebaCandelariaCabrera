@@ -4,6 +4,8 @@ body {
   background-image: url(https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700410991.jpg);
   background-color: black;
   background-size: cover;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 #root {
@@ -186,7 +188,7 @@ ul{
   width: 80%;
   max-width: 470px;
   margin-top: 5px;
- 
+ padding-bottom: 10rem;
 }
 
  li {
@@ -199,15 +201,9 @@ ul{
   backdrop-filter: blur(5px);
   overflow: hidden;
   max-width: 700px;
+  
  
 }
-
-li:hover{
-  cursor:pointer;
-  transform: scale(1.01);
-  box-shadow: 0 0 3px #efefef;
-}
-
 
 
 li div {
@@ -216,6 +212,7 @@ li div {
   display: flex;
   flex-direction: column;
   gap: 13px;
+  position: relative;
 }
 
 li div * {
@@ -261,17 +258,46 @@ li img {
 
 }
 
-.see-more{
+li div:hover {
+  z-index: -8;
+}
+
+.edit-hover{
   width: 100%;
   height: 100px;
+  /* background: #222; */
+  color: transparent;
+  position: absolute;
+  z-index: -4;
+}
+
+.edit-hover:hover{
+  color: white;
+  font-weight: 300;
+  font-size: 25px;
+  cursor: pointer;
+  background: rgba(34, 34, 34, 0.807); 
+  backdrop-filter: blur(5px);
+  z-index: 7;
+  padding-top: 70px;
+  text-shadow: 0 0 20px black;
+}
+
+.see-more{
+  width: 1700px;
+  height: 80px;
   appearance: none;
   outline: none;
-  background: transparent;
+  /* background: red; */
   border: none;
   color: transparent;
   position: relative;
-  bottom: 200px;
+  bottom: 150px;
+  display: flex;
+  justify-content: space-between;
 }
+
+
 
 
 /* ! POPUP */
